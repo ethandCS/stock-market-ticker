@@ -103,6 +103,17 @@ We are following an Agile methodology for this project, breaking it down into sp
 
 3. Open the app in your browser at `http://localhost:3000`.**TO_BE_CHANGED**
 
+## Mock Data for Development
+
+During development, the app uses a `mockStocks.csv` file located in the `public/` folder to simulate stock data fetching. This allows the app to function without relying on external APIs during development.
+
+- **mockStocks.csv**: Contains mock stock symbols and prices, used to simulate real-time stock lookups.
+- We use `PapaParse` to parse the CSV and display the stock information in the app.
+- The session-based watchlist clears on page refresh, making it suitable for demo purposes.
+
+To use the mock data, simply start the React app using `npm start` and fetch stock prices by entering a symbol in the input field.
+
+
 ### API Documentation
 
 The Go backend exposes the following API endpoint:
