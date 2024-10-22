@@ -10,6 +10,11 @@ This project is a full-stack web application built with **Go** (for the backend)
 - **Frontend**: React
 - **API for Stock Data**: Alpha Vantage API
 
+## Collaborators
+
+- **Ethan Diaz** - [GitHub Profile](https://github.com/ethandCS)
+- **Cyril Youssef** - [GitHub Profile](https://github.com/cyrilyoussef)
+
 ### Features
 
 - **Add Stocks to Watchlist**: Users can add stock symbols (e.g., AAPL, TSLA) to their watchlist via the web app.

@@ -1,13 +1,6 @@
-# Stock Market Ticker (Web App)
+# Getting Started with Create React App
 
-## Project Overview
-
-This project is a full-stack web application built with **Go** (for the backend) and **React** (for the frontend). The app allows users to create a watchlist of stock symbols and fetch real-time stock prices using the **Alpha Vantage API**.
-
-## Collaborators
-
-- **Ethan Diaz** - [GitHub Profile](https://github.com/ethandCS)
-- **Cyril Youssef** - [GitHub Profile](https://github.com/cyrilyoussef)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
