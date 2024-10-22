@@ -57,13 +57,40 @@ func FetchStockPrice(w http.ResponseWriter, r *http.Request) {
 
     // Parse the JSON response from the Alpha Vantage API into a map
     var result map[string]interface{}
-    json.NewDecoder(resp.Body).Decode(&result)
+    err = json.NewDecoder(resp.Body).Decode(&result)
+    if err != nil {
+        // If the response cannot be decoded, return a 500 Internal Server Error
+        http.Error(w, "Failed to decode JSON response", http.StatusInternalServerError)
+        return
+    }
+
+    // Check if the response contains the rate-limit message
+    if info, exists := result["Information"].(string); exists {
+        // If the rate limit is hit, return a 429 Too Many Requests error with the information message
+        http.Error(w, info, http.StatusTooManyRequests)
+        return
+    }
+
+    // Check if the "Global Quote" key exists in the response
+    quote, ok := result["Global Quote"].(map[string]interface{})
+    if !ok {
+        // If no stock data is found, return a 404 Not Found error
+        http.Error(w, "No stock data found for the provided symbol", http.StatusNotFound)
+        return
+    }
 
     // Extract the price from the JSON response
-    // Alpha Vantage returns data in a nested structure, so we navigate through it
+    price, ok := quote["05. price"].(string)
+    if !ok {
+        // If the price field is missing, return a 404 Not Found error
+        http.Error(w, "Price data not found", http.StatusNotFound)
+        return
+    }
+
+    // Create a stock data response struct with the symbol and price
     stockData := StockResponse{
-        Symbol: symbol, // Set the symbol from the query parameter
-        Price:  result["Global Quote"].(map[string]interface{})["05. price"].(string),  // Get the stock price
+        Symbol: symbol,
+        Price:  price,
     }
 
     // Set the response header to indicate we're sending JSON
