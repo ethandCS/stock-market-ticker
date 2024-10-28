@@ -1,4 +1,10 @@
 # Stock Market Ticker (Web App)
+ehtann not::::
+need to host on github pages
+need to fix 52 week data and chart data points
+need to make look nicer
+need to add gpt inplement tation?
+need to fix read me
 
 ## Project Overview
 
