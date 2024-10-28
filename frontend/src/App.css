@@ -1,51 +1,111 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* App.css */
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6; /* Light background */
+  color: #333; /* Dark text for readability */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main container styling */
+.App {
+  background-color: #fff; /* White card-style background */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  border-radius: 8px;
+  padding: 20px 30px;
+  max-width: 1200px; /* Increased width for better space */
+  width: 100%;
+  text-align: left;
+  margin: 40px auto; /* Centered horizontally */
+}
+
+/* Title styling */
+h1 {
+  color: #0057e7; /* Finance-inspired deep blue */
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center; /* Centered title */
+}
+
+/* Flex container for stock info and chart */
+.stock-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Stock information styling */
+.stock-info {
+  flex: 1;
+  margin-top: 20px;
+  line-height: 1.6;
+  max-width: 400px; /* Limit width for better alignment */
+}
+
+/* Chart container with increased size */
+.chart-container {
+  flex: 2; /* Allow the chart to take more space */
+  padding: 20px;
+  background-color: #f9fafb; /* Slight off-white */
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Make the chart fully responsive */
+.chart-container canvas {
+  width: 100% !important; /* Ensure chart takes the full width */
+  height: auto !important; /* Maintain aspect ratio */
+}
+
+/* Styling for the input field and button */
 .input-field {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
-  width: 250px;
-  margin-right: 10px;
+  width: 300px;
+  margin-right: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .submit-button {
-  padding: 10px;
+  padding: 12px 18px;
   font-size: 16px;
+  background-color: #0057e7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #004bbd; /* Darker blue on hover */
+}
+
+/* Error message styling */
+.error-message {
+  color: #e74c3c; /* Red color for errors */
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* General list styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #f8f9fa;
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 1px solid #e3e4e5;
+  border-radius: 5px;
 }
