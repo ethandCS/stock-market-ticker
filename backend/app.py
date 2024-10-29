@@ -2,12 +2,10 @@
 
 from flask import Flask, jsonify, request
 import yfinance as yf
-from flask_cors import CORS
 from datetime import datetime
 
 # Initialize the Flask app
 app = Flask(__name__)
-CORS(app)  # Enable CORS
 
 # Route to get the current stock price and additional data
 @app.route('/api/stocks', methods=['GET'])
@@ -76,4 +74,4 @@ def get_historical_data():
         return jsonify({"error": f"Failed to fetch historical data: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True)

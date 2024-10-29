@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -23,17 +23,6 @@ ChartJS.register(
 );
 
 function ChartComponent({ historicalData }) {
-  const chartRef = useRef(null);
-
-  useEffect(() => {
-    // Cleanup function to destroy the chart before re-rendering
-    return () => {
-      if (chartRef.current) {
-        chartRef.current.destroy();
-      }
-    };
-  }, [historicalData]);
-
   // Define chart data using `historicalData`
   const chartData = {
     labels: historicalData.map(data => data.date), // Dates for the x-axis
@@ -48,8 +37,33 @@ function ChartComponent({ historicalData }) {
     ],
   };
 
+  // Define chart options
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        type: 'category',
+        title: {
+          display: true,
+          text: 'Date',
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Price ($)',
+        },
+      },
+    },
+  };
+
   // Render the chart with Line component
-  return <Line ref={chartRef} data={chartData} />;
+  return (
+    <div style={{ height: '400px', width: '100%' }}> {/* Adjust the height as needed */}
+      <Line data={chartData} options={options} />
+    </div>
+  );
 }
 
 export default ChartComponent;

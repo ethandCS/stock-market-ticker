@@ -8,10 +8,12 @@ function App() {
   const [historicalData, setHistoricalData] = useState([]); // State for historical data
   const [error, setError] = useState(''); // State to manage errors
 
+  const backendURL = 'https://stock-market-ticker-ten.vercel.app/api/stocks';
+
   // Fetch current stock data from the backend
   const fetchStockData = async (tickerSymbol) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/stocks?symbol=${tickerSymbol}`);
+      const response = await fetch(`${backendURL}?symbol=${tickerSymbol}`);
       if (!response.ok) {
         throw new Error('Failed to fetch stock data');
       }
@@ -27,7 +29,7 @@ function App() {
   // Fetch historical stock data from the backend
   const fetchHistoricalData = async (tickerSymbol) => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/stocks/historical?symbol=${tickerSymbol}`);
+      const response = await fetch(`${backendURL}/historical?symbol=${tickerSymbol}`);
       if (!response.ok) {
         throw new Error('Failed to fetch historical data');
       }
@@ -72,8 +74,8 @@ function App() {
               <h2>{stockData.symbol}</h2>
               <p>Price: ${stockData.price}</p>
               <p>Timestamp: {stockData.timestamp}</p>
-              <p>52-Week High: ${stockData.high_52_week}</p>
-              <p>52-Week Low: ${stockData.low_52_week}</p>
+              <p>52-Week High: ${stockData.high_52week}</p>
+              <p>52-Week Low: ${stockData.low_52week}</p>
               <p>Market Cap: ${stockData.market_cap}</p>
               <p>PE Ratio: {stockData.pe_ratio}</p>
             </>
