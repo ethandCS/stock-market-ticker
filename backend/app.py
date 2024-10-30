@@ -3,9 +3,11 @@
 from flask import Flask, jsonify, request
 import yfinance as yf
 from datetime import datetime
+from flask_cors import CORS  # Import CORS
 
 # Initialize the Flask app
 app = Flask(__name__)
+CORS(app)  # Enable CORS for the entire app
 
 # Route to get the current stock price and additional data
 @app.route('/api/stocks', methods=['GET'])
