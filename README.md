@@ -1,156 +1,102 @@
 # Stock Market Ticker (Web App)
-ehtann not::::
-need to host on github pages
-need to fix 52 week data and chart data points
-need to make look nicer
-need to add gpt inplement tation?
-need to fix read me
 
 ## Project Overview
 
-This project is a full-stack web application built with **Go** (for the backend) and **React** (for the frontend). The app allows users to create a watchlist of stock symbols and fetch real-time stock prices using the **Alpha Vantage API**. Users can interact with the web app to add stocks to their watchlist, remove stocks, and view the latest stock prices.
+This project is a full-stack web application that displays stock market data, including current prices, 52-week highs/lows, and historical charts, using React for the frontend and Python (Flask) for the backend. Stock data is sourced from Yahoo Finance via the yfinance library, and the frontend and backend are hosted separately on Vercel.
 
-### Tech Stack
+## Tech Stack
 
-- **Backend**: Go (serving a REST API)
-- **Frontend**: React
-- **API for Stock Data**: Alpha Vantage API
+- Frontend: React, hosted on Vercel
+- Backend: Python (Flask), hosted on Vercel
+- API for Stock Data: Yahoo Finance via yfinance
 
-## Collaborators
+## Features
 
-- **Ethan Diaz** - [GitHub Profile](https://github.com/ethandCS)
-- **Cyril Youssef** - [GitHub Profile](https://github.com/cyrilyoussef)
+- **Search Stock Symbol**: Enter a symbol (e.g., AAPL) to view the latest stock data.
+- **Real-time Stock Information**: Displays the current price, 52-week high/low, market cap, and P/E ratio.
+- **Historical Chart**: Provides a one-month historical price chart.
+- **Error Handling**: Displays user-friendly error messages for invalid stock symbols or API errors.
 
-### Features
+## Deployment and Hosting
 
-- **Add Stocks to Watchlist**: Users can add stock symbols (e.g., AAPL, TSLA) to their watchlist via the web app.
-- **Fetch Real-Time Stock Prices**: The backend fetches the latest stock prices from the Alpha Vantage API and provides this data to the React frontend.
-- **Display Stock Prices**: Stock prices are displayed on the web page in a user-friendly format.
-- **Remove Stocks from Watchlist**: Users can remove unwanted stocks from their watchlist.
-- **Error Handling**: Invalid stock symbols or API errors are handled gracefully and presented to the user.
+Both the frontend and backend are hosted on Vercel, ensuring separate and scalable hosting solutions:
 
-## Agile Planning
-
-We are following an Agile methodology for this project, breaking it down into sprints. Below are the high-level user stories and sprint plans.
-
-### Backlog (User Stories)
-
-| ID  | User Story                                                                                       | Priority |
-| --- | ------------------------------------------------------------------------------------------------- | -------- |
-| 1   | As a user, I want to input stock symbols into a watchlist on the React web app to track stocks.    | High     |
-| 2   | As a user, I want to fetch real-time stock prices from the Go API for my watchlist.                | High     |
-| 3   | As a user, I want to display stock prices on the React frontend in a user-friendly format.         | High     |
-| 4   | As a user, I want to add and remove stocks from my watchlist dynamically on the web page.          | Medium   |
-| 5   | As a user, I want the stock prices to refresh automatically without reloading the page.            | Low      |
-| 6   | As a user, I want error handling for invalid stock symbols or API errors.                          | Medium   |
-
-## Sprint Plan
-
-### Sprint 1: Core Functionality
-
-- **Goal**: Set up the Go backend, React frontend, and integrate with the Alpha Vantage API.
-- **Tasks**:
-  1. Set up Go backend with a REST API (`/api/stocks`).
-  2. Set up React frontend to input stock symbols.
-  3. Fetch stock prices from the backend using React.
-  4. Display stock prices in the frontend.
-
-### Sprint 2: Add Dynamic Features
-
-- **Goal**: Implement dynamic features for managing the watchlist and error handling.
-- **Tasks**:
-  1. Allow adding/removing stocks from the watchlist.
-  2. Implement error handling for invalid stock symbols or API issues.
-  3. Optional: Implement periodic updates for real-time stock price refresh.
-
-### Sprint 3: Persistence and Final Polishing
-
-- **Goal**: Implement persistent storage and refine the user interface.
-- **Tasks**:
-    1. Add persistence (e.g., store the watchlist in a database or browser local storage).
-    2. Refine the frontend UI/UX for better user experience.
-    3. Ensure proper error messages and edge case handling.
-    4. Write unit tests for the backend API.
-
-## How to Run the Project
-
-### Prerequisites
-
-- **Go**: Install Go from [here](https://golang.org/doc/install).
-- **Node.js**: Install Node.js and npm from [here](https://nodejs.org/).
-- **Alpha Vantage API Key**: Sign up for a free API key [here](https://www.alphavantage.co/support/#api-key).
-
-### Backend (Go) Setup
-
-1. Clone the repository and navigate to the backend folder:
-   ```bash
-   git clone https://github.com/yourusername/stock-market-ticker-web.git
-   cd stock-market-ticker-web/backend
-   ```
-
-2. Install Go dependencies and run the Go server:
-   ```bash
-   go mod tidy
-   go run main.go
-   ```
-
-### Frontend (React) Setup
-
-1. Navigate to the frontend folder:
-   ```bash
-   cd ../frontend
-   ```
-
-2. Install dependencies and run the React app:
-   ```bash
-   npm install
-   npm start
-   ```
-
-3. Open the app in your browser at `http://localhost:3000`.**TO_BE_CHANGED**
-
-## Mock Data for Development
-
-During development, the app uses a `mockStocks.csv` file located in the `public/` folder to simulate stock data fetching. This allows the app to function without relying on external APIs during development.
-
-- **mockStocks.csv**: Contains mock stock symbols and prices, used to simulate real-time stock lookups.
-- We use `PapaParse` to parse the CSV and display the stock information in the app.
-- The session-based watchlist clears on page refresh, making it suitable for demo purposes.
-
-To use the mock data, simply start the React app using `npm start` and fetch stock prices by entering a symbol in the input field.
-
-
-### API Documentation
-
-The Go backend exposes the following API endpoint:
-
-- **GET /api/stocks?symbol={SYMBOL}**: Fetch the real-time stock price for the provided stock symbol.
-
-Example response:
-```json
-{
-  "symbol": "AAPL",
-  "price": "150.00",
-  "timestamp": "2024-10-10 15:00:00"
-}
-```
+- **Frontend URL**: [http://stock-market-ticker-frontend.vercel.app/](http://stock-market-ticker-frontend.vercel.app/)
+- **Backend URL**: [http://stock-market-ticker-ten.vercel.app/](http://stock-market-ticker-ten.vercel.app/)
+- **CORS** is configured to allow secure communication between the hosted frontend and backend.
 
 ## Project Structure
 
-```bash
-stock-market-ticker-web/
-├── backend/                 # Go backend folder
-│   ├── main.go              # Main Go application file
-│   └── ...                  # Other Go files
+```
+stock-market-ticker/
+├── backend/                 # Flask backend folder
+│   ├── app.py               # Flask application file
+│   └── requirements.txt     # Backend dependencies
 ├── frontend/                # React frontend folder
 │   ├── src/                 # React source code
-│   └── ...                  # Other frontend files
-├── README.md                # Project documentation
-└── LICENSE                  # License file
+│   └── public/              # Public assets
+├── vercel.json              # Configuration for Vercel deployment
+└── README.md                # Project documentation
+```
+
+## How to Run Locally
+
+### Prerequisites
+
+- Python and pip for backend
+- Node.js and npm for frontend
+
+### Backend (Flask) Setup
+
+Navigate to the backend folder:
+
+```
+cd backend
+```
+
+Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+Run the Flask server:
+
+```
+flask run
+```
+
+### Frontend (React) Setup
+
+Navigate to the frontend folder:
+
+```
+cd frontend
+```
+
+Install dependencies and run the development server:
+
+```
+npm install
+npm start
+```
+
+Open the app at:
+
+```
+http://localhost:3000
+```
+
+## Contributors
+
+```
+- Ethan Diaz - [GitHub Profile](https://github.com/ethandCS)
+- Cyril Youssef - [GitHub Profile](https://github.com/cyrilyoussef)
 ```
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+```
+Licensed under the MIT License. See the LICENSE file for details.
+```
 
-DISCLAIMER: This software is provided for informational purposes only and does not constitute financial advice. The creator of this software is not a financial advisor, and in no way, shape, or form is this software intended to be used for financial decision-making. Always do your own research and consult with a professional before making any financial decisions.
