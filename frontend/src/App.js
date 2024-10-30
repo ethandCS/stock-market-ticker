@@ -13,7 +13,7 @@ function App() {
   // Fetch current stock data from the backend
   const fetchStockData = async (tickerSymbol) => {
     try {
-      const response = await fetch(`${backendURL}?symbol=${tickerSymbol}`);
+      const response = await fetch(`${backendURL}api/stocks?symbol=${tickerSymbol}`);
       if (!response.ok) {
         throw new Error('Failed to fetch stock data');
       }
@@ -29,7 +29,7 @@ function App() {
   // Fetch historical stock data from the backend
   const fetchHistoricalData = async (tickerSymbol) => {
     try {
-      const response = await fetch(`${backendURL}/historical?symbol=${tickerSymbol}`);
+      const response = await fetch(`${backendURL}api/stocks/historical?symbol=${tickerSymbol}`);
       if (!response.ok) {
         throw new Error('Failed to fetch historical data');
       }
