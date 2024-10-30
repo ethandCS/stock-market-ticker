@@ -1,0 +1,9 @@
+# Ignore environment and virtual environment files
+.env
+venv/
+
+# Ignore test files and other large assets
+tests/
+__pycache__/
+node_modules/
+*.log
