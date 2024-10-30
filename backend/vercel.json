@@ -1,15 +1,10 @@
 {
-    "functions": {
-      "api/*.py": {
-        "memory": 1024,
-        "maxDuration": 10
-      }
-    },
-    "builds": [
-      { "src": "backend/app.py", "use": "@vercel/python" }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "backend/app.py" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "app.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/api/stocks", "dest": "/app.py" },
+    { "src": "/api/stocks/historical", "dest": "/app.py" }
+  ]
+}
