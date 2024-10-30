@@ -30,12 +30,12 @@ Both the frontend and backend are hosted on Vercel, ensuring separate and scalab
 ```
 stock-market-ticker/
 ├── backend/                 # Flask backend folder
+|   ├── vercel.json              # Configuration for Vercel deployment
 │   ├── app.py               # Flask application file
 │   └── requirements.txt     # Backend dependencies
 ├── frontend/                # React frontend folder
 │   ├── src/                 # React source code
 │   └── public/              # Public assets
-├── vercel.json              # Configuration for Vercel deployment
 └── README.md                # Project documentation
 ```
 
