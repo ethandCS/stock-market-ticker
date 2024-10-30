@@ -8,7 +8,7 @@ function App() {
   const [historicalData, setHistoricalData] = useState([]); // State for historical data
   const [error, setError] = useState(''); // State to manage errors
 
-  const backendURL = 'https://stock-market-ticker-ten.vercel.app/api/stocks';
+  const backendURL = 'https://stock-market-ticker-ten.vercel.app/';
 
   // Fetch current stock data from the backend
   const fetchStockData = async (tickerSymbol) => {
